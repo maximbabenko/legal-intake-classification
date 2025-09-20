@@ -8,7 +8,6 @@
 **Стэк:** Python, pandas, scikit-learn, CatBoost, TF-IDF, pymorphy3, FastAPI/uvicorn.
 
 В (`project.ipynb`) — полный код: загрузка, предобработка, обучение, метрики.
----
 
 ## Результаты:
 
@@ -22,14 +21,10 @@
 
 > Подробные метрики (`precision`, `recall`, `F1`, confusion matrix) смотри в ноутбуке (`project.ipynb`).
 
----
-
 ## Датасет:
 
 - Датасет собран самостоятельно из реальных обращений (анонимизированных).  
 - Поля: `text`, `category`, `priority`.  
-
----
 
 ## Запуск API:
 
@@ -45,3 +40,17 @@ uvicorn API.main:app --reload --host 0.0.0.0 --port 8000
 POST http://localhost:8000/predict
 ```
 
+Пример запроса:
+```bash
+{
+  "text": "Меня незаконно уволили, нужна помощь срочно"
+}
+```
+
+Пример ответа:
+```bash
+{
+  "category": "трудовое",
+  "priority": "высокий"
+}
+```
